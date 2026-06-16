@@ -32,6 +32,7 @@ import DashboardFilters, {
   type DashboardFilterState,
 } from '../../components/DashboardFilters';
 
+
 const initialFilters: DashboardFilterState = {
   statuses: [],
   types: [],
@@ -102,7 +103,7 @@ export default function Dashboard() {
   }, [tests]);
 
   const filteredTests = useMemo(() => {
-    return tests.filter((test) => {
+    return tests.filter((test:Test) => {
       if (filters.statuses.length && !filters.statuses.includes(test.status)) return false;
       if (filters.types.length && !filters.types.includes(test.type)) return false;
       if (filters.subjects.length && !filters.subjects.includes(test.subject)) return false;

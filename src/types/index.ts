@@ -23,7 +23,7 @@ export interface SubTopic {
 export interface Test {
   id: string;
   name: string;
-  type?: string;
+  type: string |'';
   subject: string;
   topics: string[];
   sub_topics?: string[] ;
@@ -34,8 +34,8 @@ export interface Test {
   total_time?: number;
   total_marks?: number;
   total_questions?: number;
-  status: 'draft' | 'live' | null;
-  created_at?: string;
+  status: 'draft' | 'live' |'expired'|'scheduled'|'unpublished'| '';
+  created_at: string;
   questions?: string[];
 }
 
