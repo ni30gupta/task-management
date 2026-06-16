@@ -1,0 +1,24 @@
+.wrapper {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.editor :global(.ql-toolbar) {
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.editor :global(.ql-container) {
+  border: none;
+  height: auto !important; /* important: override Quill default 100% */
+  background: #fafafa;
+  font-size: 14px;
+}
+
+.editor :global(.ql-editor) {
+  min-height: var(--editor-min-height);
+  line-height: 24px; /* 6 lines = 144px when minHeight default is 144 */
+  padding: 12px;
+}
