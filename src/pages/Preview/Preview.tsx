@@ -32,7 +32,7 @@ const OPTION_LABELS: Record<string, string> = {
 };
 
 export default function Preview() {
-  const { testId } = useParams<{ testId: string }>();
+  const { testId } = useParams<{ testId: string|'' }>();
   const navigate = useNavigate();
 
   const [test, setTest] = useState<Test | null>(null);

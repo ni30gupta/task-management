@@ -1,4 +1,18 @@
 {
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },

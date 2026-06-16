@@ -15,8 +15,9 @@ export type TestFlowMeta = {
 type TestFlowState = Record<string, TestFlowMeta>;
 
 type TestFlowContextType = {
-  getMeta: (testId: string) => TestFlowMeta | undefined;
-  setMeta: (testId: string | undefined, meta: TestFlowMeta) => void;
+  getMeta: (testId: string | undefined) => TestFlowMeta | undefined;
+  // 1. Made testId type consistent with the implementation (string only)
+  setMeta: (testId: string, meta: TestFlowMeta) => void;
   clearMeta: (testId: string) => void;
 };
 
@@ -41,8 +42,12 @@ export function TestFlowProvider({ children }: { children: React.ReactNode }) {
 
   const value = useMemo(
     () => ({
-      getMeta: (testId: string) => state[testId],
-      setMeta: (testId: string , meta: TestFlowMeta) => {
+      getMeta: (testId: string | undefined) => {
+        if (!testId) return undefined;
+        return state[testId];
+      },
+      // 2. This now perfectly matches the type interface above
+      setMeta: (testId: string, meta: TestFlowMeta) => {
         persist({ ...state, [testId]: meta });
       },
       clearMeta: (testId: string) => {

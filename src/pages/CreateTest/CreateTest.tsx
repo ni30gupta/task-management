@@ -55,7 +55,6 @@ interface FormErrors {
   total_marks?: string;
 }
 
-const status = ['live', 'unpublished', 'scheduled', 'expired', 'draft']
 const INITIAL_FORM: FormValues = {
   name: '',
   subject: '',
@@ -71,7 +70,6 @@ const INITIAL_FORM: FormValues = {
   sub_topics: [],
 };
 
-const DIFFICULTIES = ['easy', 'medium', 'f'];
 
 export default function CreateTest() {
   const navigate = useNavigate();
@@ -88,7 +86,6 @@ export default function CreateTest() {
   const [loadingSubTopics, setLoadingSubTopics] = useState(false);
   const [loadingTest, setLoadingTest] = useState(isEditing);
   const [submitError, setSubmitError] = useState<string | null>(null);
-  const [savingDraft, setSavingDraft] = useState(false);
   const [savingNext, setSavingNext] = useState(false);
 
   // Load subjects on mount
@@ -250,23 +247,6 @@ export default function CreateTest() {
     status,
   });
 
-  const handleSaveDraft = async () => {
-    if (!validate()) return;
-    setSavingDraft(true);
-    setSubmitError(null);
-    try {
-      if (isEditing && testId) {
-        await updateTest(testId, buildPayload('draft'));
-      } else {
-        await createTest(buildPayload(null));
-      }
-      navigate('/dashboard');
-    } catch {
-      setSubmitError('Failed to save draft. Please try again.');
-    } finally {
-      setSavingDraft(false);
-    }
-  };
 
   const processDataStore = (id: string) => {
     setMeta(id, {
@@ -281,7 +261,7 @@ export default function CreateTest() {
   }
 
   const handleNext = async () => {
-    // if (!validate()) return;
+    if (!validate()) return;
     setSavingNext(true);
     setSubmitError(null);
     try {

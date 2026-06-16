@@ -37,7 +37,7 @@ export default function TopBar({ onToggle }: TopBarProps) {
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, }}>
           <IconButton size={'small'} style={{ border: '1px solid grey', borderRadius: '50%', }}>
-            <NotificationsNoneIcon fontSize='10' />
+            <NotificationsNoneIcon fontSize= 'small'/>
           </IconButton>
           <Avatar sx={{overflow:"visible", width: 48, height:48, bgcolor: '#ffd284', fontSize: 14 }}>
           </Avatar>

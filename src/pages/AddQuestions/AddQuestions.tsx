@@ -71,7 +71,6 @@ export default function AddQuestions() {
   const [test, setTest] = useState<Test | null>(null);
   const [activeQuestion, setActiveQuestion] = useState(0);
   const [drafts, setDrafts] = useState<QuestionDraft[]>([]);
-  const [showHints, setShowHints] = useState(false);
   const [allQuestionsComplete, setAllQuestionsComplete] = useState(false);
   const [publishing, setPublishing] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -90,14 +89,10 @@ export default function AddQuestions() {
   const [subTopic, setSubTopic] = useState('');
   const flowMeta = testId ? getMeta(testId) : undefined;
   const activeTab = flowMeta?.activeTab ?? test?.type ?? 'Test';
-  const subject = flowMeta?.subject || { name: '' };
   // Use flowMeta topics if available (normal flow), else fall back to resolved from API
   const topics = (flowMeta?.topics?.length ? flowMeta.topics : resolvedTopics);
   const sub_topics = (flowMeta?.sub_topics?.length ? flowMeta.sub_topics : resolvedSubTopics);
 
-  const totalTime = flowMeta?.total_time ?? test?.total_time ?? 0;
-  const totalQuestions = flowMeta?.total_questions ?? test?.total_questions ?? 0;
-  const totalMarks = flowMeta?.total_marks ?? test?.total_marks ?? 0;
 
   useEffect(() => {
     if (!testId) return;

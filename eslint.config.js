@@ -2,9 +2,9 @@ import js from '@eslint/js'
 import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
+import unusedImports from 'eslint-plugin-unused-imports'
 import tseslint from 'typescript-eslint'
 import { defineConfig, globalIgnores } from 'eslint/config'
-import unusedImports from 'eslint-plugin-unused-imports';
 
 export default defineConfig([
   globalIgnores(['dist']),
@@ -12,7 +12,7 @@ export default defineConfig([
     files: ['**/*.{ts,tsx}'],
     extends: [
       js.configs.recommended,
-      tseslint.configs.recommended,
+      ...tseslint.configs.recommended,
       reactHooks.configs.flat.recommended,
       reactRefresh.configs.vite,
     ],
@@ -25,8 +25,13 @@ export default defineConfig([
     rules: {
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
-        'warn',
-        { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
+        'error',
+        {
+          vars: 'all',
+          varsIgnorePattern: '^_',
+          args: 'after-used',
+          argsIgnorePattern: '^_',
+        },
       ],
     },
   },

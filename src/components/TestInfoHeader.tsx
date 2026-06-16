@@ -20,12 +20,12 @@ import { useTestFlow, type NamedRef } from '../context/TestFlowContext';
 
 
 
-const TestInfoHeader = ({ activeTab, testId, test }: { activeTab: string, testId: string, test: Test|null }) => {
+const TestInfoHeader = ({ activeTab, testId, test }: { activeTab: string, testId: string |undefined, test: Test|null }) => {
     const { getMeta } = useTestFlow();
     const navigate = useNavigate();
 
     const meta = getMeta(testId);
-    const subject = meta?.subject;
+    const subject = meta?.subject || { name: 'N/A' };
     const topics = meta?.topics;
     const sub_topics = meta?.sub_topics;
     const totalMarks = meta?.total_marks;
