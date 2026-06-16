@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   Box,
   Button,
@@ -11,9 +11,6 @@ import {
   Radio,
   RadioGroup,
   FormControlLabel,
-  Avatar,
-  Breadcrumbs,
-  Link,
   Select,
   MenuItem,
   FormControl,
@@ -21,25 +18,9 @@ import {
   Divider,
 } from '@mui/material';
 import {
-  FormatBold,
-  FormatItalic,
-  FormatUnderlined,
-  Link as LinkIcon,
-  Image as ImageIcon,
-  Code,
-  FormatListBulleted,
-  FormatListNumbered,
-  FormatQuote,
-  TableChart,
   Delete,
-  AlignHorizontalLeft,
-  AlignHorizontalCenter,
   DeleteForever,
 } from '@mui/icons-material';
-import EditIcon from '@mui/icons-material/Edit';
-import timerIcon from '../../assets/timer.svg';
-import quizIcon from '../../assets/quiz.svg';
-import leaderboardIcon from '../../assets/leaderboard.svg';
 import { getTestById, updateTest } from '../../api/tests';
 import { getSubTopicsByTopics } from '../../api/subjects';
 import type { Question, Test, ApiErrorResponse } from '../../types';

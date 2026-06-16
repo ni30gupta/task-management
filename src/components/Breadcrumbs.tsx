@@ -14,9 +14,9 @@ export default function BreadcrumbsComponent({ active_tab, mode }: { active_tab?
   const breadcrumbs = useMemo(() => {
     const pathSegments = location.pathname.split("/").filter(Boolean);
 
-    let crumbs = [];
+    const crumbs = [];
 
-    let currentPath = "";
+    const currentPath = "";
     const formatSegmentLabel = (segment: string, params: Record<string, string | undefined>, active_tab: string| undefined): string => {
       // Handle dynamic routes with parameters
       if (segment === "test-creation" && params.testId) {

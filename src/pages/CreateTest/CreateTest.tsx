@@ -9,26 +9,19 @@ import {
   TextField,
   MenuItem,
   Select,
-  InputLabel,
   FormControl,
   FormHelperText,
   Checkbox,
   ListItemText,
   OutlinedInput,
   Stack,
-  Divider,
-  Paper,
   Radio,
   RadioGroup,
   FormControlLabel,
-  FormLabel,
   Tabs,
   Tab,
   Grid,
-  IconButton,
 } from '@mui/material';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { getTopicsBySubject, getSubTopicsByTopics } from '../../api/subjects';
 import { createTest, updateTest, getTestById } from '../../api/tests';
 import type { Topic, SubTopic } from '../../types';

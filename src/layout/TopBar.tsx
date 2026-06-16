@@ -8,7 +8,6 @@ import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useAuth } from '../hooks/useAuth';
 import logoUrl from '../assets/logo.png';
-import avatar from '../assets/avatar.png';
 
 interface TopBarProps {
   onToggle: () => void;
