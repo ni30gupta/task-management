@@ -307,6 +307,7 @@ export default function CreateTest() {
           <Tabs value={activeTab}
             onChange={(_, val) => {
               setActiveTab(val);
+              setForm((prev) => ({ ...prev, type: val }));
             }}>
             <Tab value={'chapterwise'} label="Chapter Wise" />
             <Tab value={'pyq'} label="PYQ" />
