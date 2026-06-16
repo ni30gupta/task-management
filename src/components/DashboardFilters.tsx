@@ -1,4 +1,4 @@
-import { SyntheticEvent } from 'react';
+import type {SyntheticEvent}  from 'react';
 import {
   Autocomplete,
   Box,
@@ -116,7 +116,8 @@ export default function DashboardFilters({ filters, options, onChange, onClear }
               type="date"
               value={filters.fromDate}
               onChange={(e) => update({ fromDate: e.target.value })}
-              InputLabelProps={{ shrink: true }}
+                          slotProps={{ inputLabel: { shrink: true } }}
+            
               size="small"
               fullWidth
             />
@@ -125,7 +126,7 @@ export default function DashboardFilters({ filters, options, onChange, onClear }
               type="date"
               value={filters.toDate}
               onChange={(e) => update({ toDate: e.target.value })}
-              InputLabelProps={{ shrink: true }}
+                          slotProps={{ inputLabel: { shrink: true } }}
               size="small"
               fullWidth
             />

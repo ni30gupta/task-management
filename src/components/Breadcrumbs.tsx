@@ -19,7 +19,7 @@ export default function BreadcrumbsComponent({ active_tab, mode }: BreadcrumbsCo
 
   const breadcrumbs = useMemo(() => {
     // 2. Explicitly type the array so TypeScript allows pushing optional paths
-    const crumbs: BreadcrumbItem[] = [{ label: "", path: "" }];
+    const crumbs: BreadcrumbItem[] = [];
 
     crumbs.push({ label: 'Test Creation' });
 
@@ -45,7 +45,7 @@ export default function BreadcrumbsComponent({ active_tab, mode }: BreadcrumbsCo
             {crumb.label}
           </Link>
         ) : (
-          <Typography variant="subtitle1" key={index} color="text.secondary" sx={{ fontWeight: 500 }}>
+          <Typography variant="subtitle1" key={index} color="textPrimary" sx={{ fontWeight: 500 }}>
             {crumb.label}
           </Typography>
         )

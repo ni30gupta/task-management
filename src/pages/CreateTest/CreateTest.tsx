@@ -231,7 +231,7 @@ export default function CreateTest() {
     return Object.keys(errs).length === 0;
   };
 
-  const buildPayload = (status: 'draft' | 'live' | null) => ({
+  const buildPayload = (status: 'draft' | 'live' | '') => ({
     name: form.name,
     subject: form.subject,
     type: activeTab,
@@ -537,14 +537,14 @@ export default function CreateTest() {
                 Test Difficulty Level
               </Typography>
               <RadioGroup
-                sx={{ position: 'relative', top: 10, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}
+                sx={{ px:1, position: 'relative', top: 10, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}
                 row
                 value={form.difficulty}
                 onChange={(e) => handleChange('difficulty', e.target.value)}
               >
                 <FormControlLabel value="easy" control={<Radio />} label="Easy" />
                 <FormControlLabel value="medium" control={<Radio />} label="Medium" />
-                <FormControlLabel value="difficult" control={<Radio />} label="Difficult" />
+                <FormControlLabel value="hard" control={<Radio />} label="Difficult" />
               </RadioGroup>
             </Box>
 
