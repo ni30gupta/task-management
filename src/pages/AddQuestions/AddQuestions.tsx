@@ -239,7 +239,7 @@ export default function AddQuestions() {
   }
 
   return (
-    <Box sx={{ display: 'flex', height: '100vh', bgcolor: '#f8f9fa' }}>
+    <Box sx={{overflow:'auto', display: 'flex', height: '88vh', bgcolor: '#f8f9fa' }}>
       {/* Left Sidebar */}
       <QuestionBar
         test={test}
